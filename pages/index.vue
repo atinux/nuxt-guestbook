@@ -11,7 +11,7 @@ const otherQuotes = computed(() => quotes.value?.filter(quote => quote.author !=
 async function saveQuote() {
   if (!userQuoteBody.value.trim()) return
   editing.value = false
-  await useFetch('/api/quote', {
+  await $fetch('/api/quote', {
     method: 'PUT',
     body: {
       body: userQuoteBody.value.trim()
@@ -20,7 +20,6 @@ async function saveQuote() {
   toast.add({
     title: 'Quote saved!'
   })
-
   refresh()
 }
 </script>
