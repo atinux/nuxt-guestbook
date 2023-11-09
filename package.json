@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-quotes",
+  "name": "nuxt-guestbook",
   "private": true,
   "scripts": {
     "dev": "nuxi dev",

@@ -1,26 +1,36 @@
 <script setup>
 const toast = useToast()
 const { user, loggedIn } = useUserSession()
-const { data: quotes, refresh } = await useFetch('/api/quotes')
+const { data: comments, refresh } = await useFetch('/api/comments')
 
-const userQuote = computed(() => quotes.value?.find(quote => quote.author === user.value?.username))
-const userQuoteBody = ref(userQuote.value?.body || '')
-const editing = ref(userQuote.value ? false : true)
-const otherQuotes = computed(() => quotes.value?.filter(quote => quote.author !== user.value?.username))
+const userComment = computed(() => comments.value?.find(comment => comment.author === user.value?.username))
+const userCommentBody = ref(userComment.value?.body || '')
+const editing = ref(userComment.value ? false : true)
+const otherComments = computed(() => comments.value?.filter(comment => comment.author !== user.value?.username))
 
-async function saveQuote() {
-  if (!userQuoteBody.value.trim()) return
+async function saveComment() {
+  if (!userCommentBody.value.trim()) return
   editing.value = false
-  await $fetch('/api/quote', {
+  await $fetch('/api/comment', {
     method: 'PUT',
     body: {
-      body: userQuoteBody.value.trim()
+      body: userCommentBody.value.trim()
     }
   })
-  toast.add({
-    title: 'Quote saved!'
+  .then(() => {
+    toast.add({
+      title: 'Comment saved.'
+    })
+    refresh()
   })
-  refresh()
+  .catch(err => {
+    editing.value = true
+    toast.add({
+      title: 'An error occured',
+      description: err.message,
+      color: 'red'
+    })
+  })
 }
 </script>
 
@@ -29,9 +39,9 @@ async function saveQuote() {
     <UPageColumns>
       <UPageCard v-if="loggedIn" @dblclick="editing = true">
         <UButton v-if="!editing" color="gray" variant="ghost" icon="i-heroicons-pencil" square size="xs" class="absolute right-2 top-2" @click="editing = true" />
-        <UTextarea v-if="editing" v-model="userQuoteBody" class="p-0" :rows="1" :autoresize="true" :autofocus="true" @blur="saveQuote" />
+        <UTextarea v-if="editing" v-model="userCommentBody" class="p-0" :rows="1" :autoresize="true" :autofocus="true" @blur="saveComment" />
         <q v-else class="italic text-lg">
-          {{ userQuoteBody }}
+          {{ userCommentBody }}
         </q>
         <div class="flex gap-2 items-center mt-4">
           <UAvatar
@@ -47,22 +57,22 @@ async function saveQuote() {
       </UPageCard>
       <UPageCard v-else :ui="{ wrapper: 'text-center' }">
         <UButton to="/auth/github" external color="black" icon="i-simple-icons-github">
-          Login to add a quote
+          Login to comment
         </UButton>
       </UPageCard>
-      <UPageCard v-for="quote of otherQuotes" :key="quote.id" :to="`https://github.com/${quote.author}`" target="_blank">
+      <UPageCard v-for="comment of otherComments" :key="comment.id" :to="`https://github.com/${comment.author}`" target="_blank">
         <q class="italic text-lg">
-          {{ quote.body }}
+          {{ comment.body }}
         </q>
         <div class="flex gap-2 items-center mt-4">
           <UAvatar
-            :src="`https://github.com/${quote.author}.png`"
+            :src="`https://github.com/${comment.author}.png`"
             loading="lazy"
-            :alt="quote.author"
+            :alt="comment.author"
             size="md"
           />
           <p class="font-semibold">
-            {{ quote.author }}
+            {{ comment.author }}
           </p>
         </div>
       </UPageCard>

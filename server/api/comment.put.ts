@@ -7,15 +7,13 @@ export default eventHandler(async (event) => {
   const session = await requireUserSession(event)
 
   // List todos for the current user
-  const quote = await useDB().insert(tables.quotes).values({
+  return await useDB().insert(tables.comments).values({
     author: session.user.username,
     body
   }).onConflictDoUpdate({
-    target: tables.quotes.author,
+    target: tables.comments.author,
     set: {
       body
     }
   }).returning().get()
-  
-  return quote
 })

@@ -1,8 +1,8 @@
-# Nuxt Quotes on the Edge
+# Nuxt Guestbook
 
 A demonstration using [Nuxt](https://nuxt.com) with server-side rendering on the edge, authentication and database querying using SQLite in production.
 
-Demo: https://nuxt-quotes.pages.dev
+Demo: https://guestbook.nuxt.space
 
 ## Features
 
@@ -72,7 +72,7 @@ Lastly, in the project settings -> Functions, add the binding between your D1 da
 
 ![d1-binding](https://user-images.githubusercontent.com/904724/236021974-d77dfda6-4eb7-4094-ae36-479be73ec35f.png)
 
-Copy the contents from `server/db/migrations/0000_robust_selene.sql` into the D1 console to seed the database.
+Copy the contents from `server/db/migrations/0000_absent_nightshade.sql` into the D1 console to seed the database.
 
 ## License
 

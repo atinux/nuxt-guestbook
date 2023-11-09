@@ -1,11 +1,12 @@
 <script setup>
 const { loggedIn, clear } = useUserSession()
+
 useHead({
   htmlAttrs: { lang: 'en' },
 })
 
 useSeoMeta({
-  title: 'Nuxt Quotes',
+  title: 'Nuxt Guestbook',
   description:
     'A Nuxt demo hosted with Edge-side rendering, authentication and queyring a SQLite database'
 })
@@ -14,7 +15,7 @@ useSeoMeta({
 <template>
   <UHeader class="border-none md:pt-4" :ui="{ container: 'bg-gray-400/5 md:rounded-full border-b md:border dark:border-gray-800' }">
     <template #logo>
-      Nuxt Quotes
+      Nuxt Guestbook
     </template>
     <template #right>
       <UColorModeButton />
@@ -37,7 +38,7 @@ useSeoMeta({
     </template>
     <template #right>
       <UButton to="https://x.com/Atinux" target="_blank" icon="i-simple-icons-x" color="gray" variant="ghost" />
-      <UButton to="https://github.com/atinux/nuxt-quotes" target="_blank" icon="i-simple-icons-github" color="gray" variant="ghost" />
+      <UButton to="https://github.com/atinux/nuxt-guestbook" target="_blank" icon="i-simple-icons-github" color="gray" variant="ghost" />
     </template>
   </UFooter>
   <UNotifications />

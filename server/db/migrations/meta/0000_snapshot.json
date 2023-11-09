@@ -1,11 +1,11 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "99a7e04c-89fa-4241-90af-b3b4ce6f9db5",
+  "id": "a0d30217-6787-47cf-8b4f-bd7712ecbe32",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
-    "quotes": {
-      "name": "quotes",
+    "comments": {
+      "name": "comments",
       "columns": {
         "id": {
           "name": "id",
@@ -30,8 +30,8 @@
         }
       },
       "indexes": {
-        "quotes_author_unique": {
-          "name": "quotes_author_unique",
+        "comments_author_unique": {
+          "name": "comments_author_unique",
           "columns": [
             "author"
           ],

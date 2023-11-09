@@ -1,7 +1,7 @@
-CREATE TABLE `quotes` (
+CREATE TABLE `comments` (
 	`id` integer PRIMARY KEY NOT NULL,
 	`author` text NOT NULL,
 	`body` text NOT NULL
 );
 --> statement-breakpoint
-CREATE UNIQUE INDEX `quotes_author_unique` ON `quotes` (`author`);
+CREATE UNIQUE INDEX `comments_author_unique` ON `comments` (`author`);
