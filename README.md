@@ -46,7 +46,9 @@ npm run dev
 
 ## Deploy on CloudFlare Pages
 
-Create a CF pages deployment linked to your GitHub repository. Make sure to select Version 2 (Beta) as the build system version.
+Create a CF pages deployment linked to your GitHub repository and select the Nuxt.js preset.
+
+To build the guestbook in production, you need a [Nuxt UI Pro](https://ui.nuxt.com/pro) license.
 
 ### Environment variables
 
@@ -54,6 +56,7 @@ Create a CF pages deployment linked to your GitHub repository. Make sure to sele
 NUXT_OAUTH_GITHUB_CLIENT_ID=...
 NUXT_OAUTH_GITHUB_CLIENT_SECRET=...
 NUXT_SESSION_PASSWORD=...
+NUXT_UI_PRO_LICENSE=...
 ```
 
 ### Build command
