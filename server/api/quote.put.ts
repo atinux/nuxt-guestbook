@@ -9,13 +9,11 @@ export default eventHandler(async (event) => {
   // List todos for the current user
   const quote = await useDB().insert(tables.quotes).values({
     author: session.user.username,
-    body,
-    date: new Date()
+    body
   }).onConflictDoUpdate({
     target: tables.quotes.author,
     set: {
-      body,
-      date: new Date()
+      body
     }
   }).returning().get()
   
