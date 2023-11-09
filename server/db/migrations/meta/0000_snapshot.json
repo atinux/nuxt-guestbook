@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "d1b6e981-dba7-44cc-8cf9-e2ed2a6a62b3",
+  "id": "99a7e04c-89fa-4241-90af-b3b4ce6f9db5",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "quotes": {
@@ -24,13 +24,6 @@
         "body": {
           "name": "body",
           "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "integer",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
