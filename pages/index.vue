@@ -1,6 +1,6 @@
-<script setup lang="ts">
+<script setup>
+const toast = useToast()
 const { user, loggedIn } = useUserSession()
-
 const { data: quotes, refresh } = await useFetch('/api/quotes')
 
 const userQuote = computed(() => quotes.value?.find(quote => quote.author === user.value?.username))
@@ -17,6 +17,10 @@ async function saveQuote() {
       body: userQuoteBody.value.trim()
     }
   })
+  toast.add({
+    title: 'Quote saved!'
+  })
+
   refresh()
 }
 </script>
@@ -30,7 +34,6 @@ async function saveQuote() {
         <q v-else class="italic text-lg">
           {{ userQuoteBody }}
         </q>
-
         <div class="flex gap-2 items-center mt-4">
           <UAvatar
             :src="`https://github.com/${user.username}.png`"
@@ -43,16 +46,15 @@ async function saveQuote() {
           </p>
         </div>
       </UPageCard>
-      <UPageCard v-else>
-        <UButton to="/auth/login" external color="black">
+      <UPageCard v-else :ui="{ wrapper: 'text-center' }">
+        <UButton to="/auth/github" external color="black" icon="i-simple-icons-github">
           Login to add a quote
         </UButton>
       </UPageCard>
-      <UPageCard v-for="quote of otherQuotes" :key="quote.id" :to="`https://github.com/${quote.author}`">
+      <UPageCard v-for="quote of otherQuotes" :key="quote.id" :to="`https://github.com/${quote.author}`" target="_blank">
         <q class="italic text-lg">
           {{ quote.body }}
         </q>
-
         <div class="flex gap-2 items-center mt-4">
           <UAvatar
             :src="`https://github.com/${quote.author}.png`"
