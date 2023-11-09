@@ -3,5 +3,4 @@ CREATE TABLE `comments` (
 	`author` text NOT NULL,
 	`body` text NOT NULL
 );
---> statement-breakpoint
 CREATE UNIQUE INDEX `comments_author_unique` ON `comments` (`author`);
