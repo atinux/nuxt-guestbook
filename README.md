@@ -1,5 +1,7 @@
 # Nuxt Guestbook
 
+[![screenshot](./public/social-image.png)](https://nuxt-guestbook.pages.dev)
+
 A demonstration using [Nuxt](https://nuxt.com) with server-side rendering on the edge, authentication and database querying using SQLite in production.
 
 Demo: https://nuxt-guestbook.pages.dev
