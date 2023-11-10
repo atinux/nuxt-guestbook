@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const toast = useToast()
 const { loggedIn, user } = useUserSession()
 const { data: comments } = await useFetch('/api/comments')
 
@@ -17,6 +18,19 @@ async function saveComment() {
     body: {
       body: userCommentBody.value
     }
+  })
+  .then(() => {
+    toast.add({
+      title: 'Comment saved.'
+    })
+  })
+  .catch(err => {
+    editing.value = true
+    toast.add({
+      title: 'An error occured',
+      description: err.message,
+      color: 'red'
+    })
   })
 }
 </script>
