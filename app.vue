@@ -1,6 +1,4 @@
 <script setup>
-const { loggedIn, clear } = useUserSession()
-
 useSeoMeta({
   title: 'Nuxt Guestbook',
   description:
@@ -9,21 +7,5 @@ useSeoMeta({
 </script>
 
 <template>
-  <UHeader>
-    <template #logo>
-      Nuxt Guestbook
-    </template>
-    <template #right>
-      <UColorModeButton />
-      <UButton v-if="loggedIn" color="gray" @click="clear">
-        Logout
-      </UButton>
-      <UButton v-else to="/auth/github" external color="gray" icon="i-simple-icons-github">
-        Login with GitHub
-      </UButton>
-    </template>
-  </UHeader>
-  <UContainer>
-    <NuxtPage />
-  </UContainer>
+  <NuxtPage />
 </template>
