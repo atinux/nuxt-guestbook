@@ -1,1 +1,13 @@
-{"version":"5","dialect":"sqlite","entries":[]}
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1699629168535,
+      "tag": "0000_powerful_gwen_stacy",
+      "breakpoints": true
+    }
+  ]
+}
