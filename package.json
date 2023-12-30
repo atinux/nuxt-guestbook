@@ -10,21 +10,23 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@iconify-json/heroicons": "^1.1.13",
-    "@iconify-json/simple-icons": "^1.1.79",
-    "@nuxt/ui": "^2.10.0",
-    "@nuxt/ui-pro": "^0.4.2",
-    "better-sqlite3": "^9.1.1",
-    "drizzle-kit": "^0.20.4",
-    "drizzle-orm": "^0.29.0",
-    "nuxt": "^3.8.1",
-    "nuxt-auth-utils": "^0.0.6",
+    "@iconify-json/heroicons": "^1.1.19",
+    "@iconify-json/simple-icons": "^1.1.86",
+    "@nuxt/ui": "^2.11.1",
+    "@nuxt/ui-pro": "^0.6.1",
+    "drizzle-kit": "^0.20.9",
+    "drizzle-orm": "^0.29.2",
+    "nuxt": "^3.9.0",
+    "nuxt-auth-utils": "^0.0.13",
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^1.0.3",
+    "@nuxt/devtools": "^1.0.6",
     "@nuxt/eslint-config": "^0.2.0",
-    "eslint": "^8.54.0",
-    "typescript": "5.2.2"
+    "eslint": "^8.56.0",
+    "typescript": "5.3.3"
+  },
+  "resolutions": {
+    "giget": "^1.2.1"
   }
 }
