@@ -7,3 +7,5 @@ export const comments = sqliteTable('comments', {
 }, (table) => ({
   uniqueAuthor: unique().on(table.author)
 }))
+
+export type Comment = typeof comments.$inferSelect

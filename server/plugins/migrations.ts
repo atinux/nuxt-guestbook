@@ -1,8 +1,8 @@
-import type { BetterSQLite3Database } from 'drizzle-orm/better-sqlite3'
-import { migrate } from 'drizzle-orm/better-sqlite3/migrator'
+import type { LibSQLDatabase } from 'drizzle-orm/libsql'
+import { migrate } from 'drizzle-orm/libsql/migrator'
 
 export default defineNitroPlugin(async () => {
   if (process.dev) {
-    migrate(useDB() as BetterSQLite3Database, { migrationsFolder: 'server/db/migrations' })
+    migrate(useDB() as LibSQLDatabase, { migrationsFolder: 'server/database/migrations' })
   }
 })
