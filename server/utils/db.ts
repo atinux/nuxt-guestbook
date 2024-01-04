@@ -1,6 +1,6 @@
 import { drizzle, LibSQLDatabase } from 'drizzle-orm/libsql'
 
-export * as tables from '~/server/db/schema'
+export * as tables from '~/server/database/schema'
 
 let _db: LibSQLDatabase | null = null
 
