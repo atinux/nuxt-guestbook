@@ -10,3 +10,4 @@ dist
 .netlify
 db.sqlite
 db.sqlite-*
+.data

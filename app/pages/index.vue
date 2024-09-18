@@ -33,11 +33,14 @@ async function saveComment() {
     })
   })
 }
+const maxColumns = Math.min(comments.value?.length || 0, 3)
+// lg:columns-2 md:columns-2
+// lg:columns-1 md:columns-1
 </script>
 
 <template>
   <UPageBody>
-    <UPageColumns>
+    <UPageColumns :ui="{ wrapper: `md:columns-${maxColumns} lg:columns-${maxColumns}` }">
       <UPageCard v-if="!loggedIn" class="text-center">
         <UButton icon="i-simple-icons-github" color="black" to="/auth/github" external>
           Login to comment
@@ -47,9 +50,12 @@ async function saveComment() {
         <UButton v-if="!editing" icon="i-heroicons-pencil" color="gray" variant="ghost" class="absolute top-2 right-2" @click="editing = true" />
         <UTextarea v-if="editing" v-model="userCommentBody" :rows="1" autofocus autoresize @blur="saveComment" />
         <q v-else>{{ userCommentBody }}</q>
-        <div class="flex items-center gap-2 mt-4">
-          <UAvatar :src="`https://github.com/${user.username}.png`" :alt="user.username" size="md" />
-          <span class="font-semibold">{{ user.username }}</span>
+        <div class="flex justify-between items-center">
+          <div class="flex items-center gap-2 mt-4">
+            <UAvatar :src="`https://github.com/${user.username}.png`" :alt="user.username" size="md" />
+            <span class="font-semibold">{{ user.username }}</span>
+          </div>
+          <UButton @click="saveComment" label="Save" v-if="editing" />
         </div>
       </UPageCard>
       <UPageCard v-for="comment of otherComments" :key="comment.id" :to="`https://github.com/${comment.author}`" target="_blank">

@@ -1,14 +1,10 @@
-import { drizzle, LibSQLDatabase } from 'drizzle-orm/libsql'
+import { drizzle } from 'drizzle-orm/d1'
+import * as schema from '../database/schema'
 
-export * as tables from '~/server/database/schema'
+export { sql, eq, and, or } from 'drizzle-orm'
 
-let _db: LibSQLDatabase | null = null
+export const tables = schema
 
-export const useDB = () => {
-  if (!_db) {
-    // d1 in production
-    _db = drizzle(useDatabaseClient())
-  }
-  return _db
+export function useDB() {
+  return drizzle(hubDatabase(), { schema })
 }
-

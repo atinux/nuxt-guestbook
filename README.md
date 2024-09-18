@@ -2,7 +2,7 @@
 
 [![screenshot](./public/social-image.png)](https://nuxt-guestbook.pages.dev)
 
-A demonstration using [Nuxt](https://nuxt.com) with server-side rendering on the edge, authentication and database querying using SQLite in production.
+A demonstration using [Nuxt](https://nuxt.com) with server-side rendering on the edge, authentication and database querying using SQLite (Cloudflare D1)in production.
 
 Demo: https://nuxt-guestbook.pages.dev
 
@@ -46,21 +46,6 @@ Start the development server on http://localhost:3000
 npm run dev
 ```
 
-## Deploy on CloudFlare Pages
-
-Create a CF pages deployment linked to your GitHub repository and select the Nuxt.js preset.
-
-To build the guestbook in production, you need a [Nuxt UI Pro](https://ui.nuxt.com/pro) license.
-
-### Environment variables
-
-```bash
-NUXT_OAUTH_GITHUB_CLIENT_ID=...
-NUXT_OAUTH_GITHUB_CLIENT_SECRET=...
-NUXT_SESSION_PASSWORD=...
-NUXT_UI_PRO_LICENSE=...
-```
-
 ### Build command
 
 Set the build command to:
@@ -71,13 +56,26 @@ npm run build
 
 And the output directory to `dist/`
 
-### D1 Database
+## Deploy on CloudFlare Pages
 
-Lastly, in the project settings -> Functions, add the binding between your D1 database and the `DB` variable:
+Deploy the application on the Edge with [NuxtHub](https://hub.nuxt.com) on your Cloudflare account:
 
-![d1-binding](https://user-images.githubusercontent.com/904724/236021974-d77dfda6-4eb7-4094-ae36-479be73ec35f.png)
+```bash
+npx nuxthub deploy
+```
 
-Copy the contents from `server/db/migrations/0000_absent_nightshade.sql` into the D1 console to seed the database.
+Then checkout your server logs, analaytics and more in the [NuxtHub Admin](https://admin.hub.nuxt.com).
+
+You can also deploy using [Cloudflare Pages CI](https://hub.nuxt.com/docs/getting-started/deploy#cloudflare-pages-ci).
+
+### Environment variables
+
+```bash
+NUXT_OAUTH_GITHUB_CLIENT_ID=...
+NUXT_OAUTH_GITHUB_CLIENT_SECRET=...
+NUXT_SESSION_PASSWORD=...
+NUXT_UI_PRO_LICENSE=...
+```
 
 ## License
 

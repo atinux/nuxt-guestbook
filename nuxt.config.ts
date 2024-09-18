@@ -1,14 +1,16 @@
 export default defineNuxtConfig({
+  compatibilityDate: '2024-09-18',
+  future: { compatibilityVersion: 4 },
   extends: [
-    'https://hub.nuxt.com/layer',
     '@nuxt/ui-pro'
   ],
   modules: [
     '@nuxt/ui',
-    'nuxt-auth-utils'
+    'nuxt-auth-utils',
+    '@nuxthub/core',
   ],
-  ui: {
-    icons: ['heroicons', 'simple-icons']
+  hub: {
+    database: true
   },
   devtools: { enabled: true },
 })

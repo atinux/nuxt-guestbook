@@ -10,23 +10,26 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@iconify-json/heroicons": "^1.1.19",
-    "@iconify-json/simple-icons": "^1.1.86",
-    "@nuxt/ui": "^2.11.1",
-    "@nuxt/ui-pro": "^0.6.1",
-    "drizzle-kit": "^0.20.9",
-    "drizzle-orm": "^0.29.2",
-    "nuxt": "^3.9.0",
-    "nuxt-auth-utils": "^0.0.13",
-    "zod": "^3.22.4"
+    "@iconify-json/heroicons": "^1.2.0",
+    "@iconify-json/simple-icons": "^1.2.3",
+    "@nuxt/ui": "^2.18.5",
+    "@nuxt/ui-pro": "^1.4.2",
+    "@nuxthub/core": "^0.7.19",
+    "drizzle-kit": "^0.24.2",
+    "drizzle-orm": "^0.33.0",
+    "nuxt": "^3.13.2",
+    "nuxt-auth-utils": "^0.3.8",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^1.0.6",
-    "@nuxt/eslint-config": "^0.2.0",
-    "eslint": "^8.56.0",
-    "typescript": "5.3.3"
+    "@nuxt/devtools": "^1.4.2",
+    "@nuxt/eslint-config": "^0.5.7",
+    "eslint": "^9.10.0",
+    "typescript": "5.6.2",
+    "wrangler": "^3.78.4"
   },
   "resolutions": {
     "giget": "^1.2.1"
-  }
+  },
+  "packageManager": "pnpm@9.10.0"
 }
